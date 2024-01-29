@@ -1,0 +1,744 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="img/refriango.svg" type="image/x-icon">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/boxicons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Incluir a biblioteca Leaflet.js -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  
+  <!-- Incluir a biblioteca Leaflet.markercluster -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster/dist/MarkerCluster.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster/dist/MarkerCluster.Default.css" />
+  <script src="https://unpkg.com/leaflet.markercluster/dist/leaflet.markercluster.js"></script>
+
+  <!-- Incluir a biblioteca Leaflet.awesome-markers -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet.awesome-markers/dist/leaflet.awesome-markers.css" />
+  <script src="https://unpkg.com/leaflet.awesome-markers/dist/leaflet.awesome-markers.js"></script>
+
+    
+
+    <link rel="stylesheet" type="text/css" href="css/normalize.min.css" media="screen, print">
+<link rel="stylesheet" type="text/css" href="css/smartslider.min.css" media="screen, print">
+<style>div#n2-ss-2 .n2-ss-slider-1{display:grid;position:relative;}div#n2-ss-2 .n2-ss-slider-2{display:grid;position:relative;overflow:hidden;padding:0px 0px 0px 0px;border:0px solid RGBA(62,62,62,1);border-radius:0px;background-clip:padding-box;background-repeat:repeat;background-position:50% 50%;background-size:cover;background-attachment:scroll;z-index:1;}div#n2-ss-2:not(.n2-ss-loaded) .n2-ss-slider-2{background-image:none !important;}div#n2-ss-2 .n2-ss-slider-3{display:grid;grid-template-areas:'cover';position:relative;overflow:hidden;z-index:10;}div#n2-ss-2 .n2-ss-slider-3 > *{grid-area:cover;}div#n2-ss-2 .n2-ss-slide-backgrounds,div#n2-ss-2 .n2-ss-slider-3 > .n2-ss-divider{position:relative;}div#n2-ss-2 .n2-ss-slide-backgrounds{z-index:10;}div#n2-ss-2 .n2-ss-slide-backgrounds > *{overflow:hidden;}div#n2-ss-2 .n2-ss-slide-background{transform:translateX(-100000px);}div#n2-ss-2 .n2-ss-slider-4{place-self:center;position:relative;width:100%;height:100%;z-index:20;display:grid;grid-template-areas:'slide';}div#n2-ss-2 .n2-ss-slider-4 > *{grid-area:slide;}div#n2-ss-2.n2-ss-full-page--constrain-ratio .n2-ss-slider-4{height:auto;}div#n2-ss-2 .n2-ss-slide{display:grid;place-items:center;grid-auto-columns:100%;position:relative;z-index:20;-webkit-backface-visibility:hidden;transform:translateX(-100000px);}div#n2-ss-2 .n2-ss-slide{perspective:1500px;}div#n2-ss-2 .n2-ss-slide-active{z-index:21;}.n2-ss-background-animation{position:absolute;top:0;left:0;width:100%;height:100%;z-index:3;}div#n2-ss-2 .n2-ss-background-animation{position:absolute;top:0;left:0;width:100%;height:100%;z-index:3;}div#n2-ss-2 .n2-ss-background-animation .n2-ss-slide-background{z-index:auto;}div#n2-ss-2 .n2-bganim-side{position:absolute;left:0;top:0;overflow:hidden;background:RGBA(51,51,51,1);}div#n2-ss-2 .n2-bganim-tile-overlay-colored{z-index:100000;background:RGBA(51,51,51,1);}div#n2-ss-2 .nextend-arrow{cursor:pointer;overflow:hidden;line-height:0 !important;z-index:18;-webkit-user-select:none;}div#n2-ss-2 .nextend-arrow img{position:relative;display:block;}div#n2-ss-2 .nextend-arrow img.n2-arrow-hover-img{display:none;}div#n2-ss-2 .nextend-arrow:FOCUS img.n2-arrow-hover-img,div#n2-ss-2 .nextend-arrow:HOVER img.n2-arrow-hover-img{display:inline;}div#n2-ss-2 .nextend-arrow:FOCUS img.n2-arrow-normal-img,div#n2-ss-2 .nextend-arrow:HOVER img.n2-arrow-normal-img{display:none;}div#n2-ss-2 .nextend-arrow-animated{overflow:hidden;}div#n2-ss-2 .nextend-arrow-animated > div{position:relative;}div#n2-ss-2 .nextend-arrow-animated .n2-active{position:absolute;}div#n2-ss-2 .nextend-arrow-animated-fade{transition:background 0.3s, opacity 0.4s;}div#n2-ss-2 .nextend-arrow-animated-horizontal > div{transition:all 0.4s;transform:none;}div#n2-ss-2 .nextend-arrow-animated-horizontal .n2-active{top:0;}div#n2-ss-2 .nextend-arrow-previous.nextend-arrow-animated-horizontal .n2-active{left:100%;}div#n2-ss-2 .nextend-arrow-next.nextend-arrow-animated-horizontal .n2-active{right:100%;}div#n2-ss-2 .nextend-arrow-previous.nextend-arrow-animated-horizontal:HOVER > div,div#n2-ss-2 .nextend-arrow-previous.nextend-arrow-animated-horizontal:FOCUS > div{transform:translateX(-100%);}div#n2-ss-2 .nextend-arrow-next.nextend-arrow-animated-horizontal:HOVER > div,div#n2-ss-2 .nextend-arrow-next.nextend-arrow-animated-horizontal:FOCUS > div{transform:translateX(100%);}div#n2-ss-2 .nextend-arrow-animated-vertical > div{transition:all 0.4s;transform:none;}div#n2-ss-2 .nextend-arrow-animated-vertical .n2-active{left:0;}div#n2-ss-2 .nextend-arrow-previous.nextend-arrow-animated-vertical .n2-active{top:100%;}div#n2-ss-2 .nextend-arrow-next.nextend-arrow-animated-vertical .n2-active{bottom:100%;}div#n2-ss-2 .nextend-arrow-previous.nextend-arrow-animated-vertical:HOVER > div,div#n2-ss-2 .nextend-arrow-previous.nextend-arrow-animated-vertical:FOCUS > div{transform:translateY(-100%);}div#n2-ss-2 .nextend-arrow-next.nextend-arrow-animated-vertical:HOVER > div,div#n2-ss-2 .nextend-arrow-next.nextend-arrow-animated-vertical:FOCUS > div{transform:translateY(100%);}div#n2-ss-2 .n2-ss-control-bullet{visibility:hidden;text-align:center;justify-content:center;z-index:14;}div#n2-ss-2 .n2-ss-control-bullet--calculate-size{left:0 !important;}div#n2-ss-2 .n2-ss-control-bullet-horizontal.n2-ss-control-bullet-fullsize{width:100%;}div#n2-ss-2 .n2-ss-control-bullet-vertical.n2-ss-control-bullet-fullsize{height:100%;flex-flow:column;}div#n2-ss-2 .nextend-bullet-bar{display:inline-flex;vertical-align:top;visibility:visible;align-items:center;flex-wrap:wrap;}div#n2-ss-2 .n2-bar-justify-content-left{justify-content:flex-start;}div#n2-ss-2 .n2-bar-justify-content-center{justify-content:center;}div#n2-ss-2 .n2-bar-justify-content-right{justify-content:flex-end;}div#n2-ss-2 .n2-ss-control-bullet-vertical > .nextend-bullet-bar{flex-flow:column;}div#n2-ss-2 .n2-ss-control-bullet-fullsize > .nextend-bullet-bar{display:flex;}div#n2-ss-2 .n2-ss-control-bullet-horizontal.n2-ss-control-bullet-fullsize > .nextend-bullet-bar{flex:1 1 auto;}div#n2-ss-2 .n2-ss-control-bullet-vertical.n2-ss-control-bullet-fullsize > .nextend-bullet-bar{height:100%;}div#n2-ss-2 .nextend-bullet-bar .n2-bullet{cursor:pointer;transition:background-color 0.4s;}div#n2-ss-2 .nextend-bullet-bar .n2-bullet.n2-active{cursor:default;}div#n2-ss-2 div.n2-ss-bullet-thumbnail-container{position:absolute;z-index:10000000;}div#n2-ss-2 .n2-ss-bullet-thumbnail-container .n2-ss-bullet-thumbnail{background-size:cover;background-repeat:no-repeat;background-position:center;}div#n2-ss-2 .n2-style-0d2023d32a83e925cffbcb2396e1bede-dot{background: RGBA(0,0,0,0.67);opacity:1;padding:5px 5px 5px 5px ;box-shadow: none;border: 0px solid RGBA(0,0,0,1);border-radius:50px;margin:4px;}div#n2-ss-2 .n2-style-0d2023d32a83e925cffbcb2396e1bede-dot.n2-active, div#n2-ss-2 .n2-style-0d2023d32a83e925cffbcb2396e1bede-dot:HOVER, div#n2-ss-2 .n2-style-0d2023d32a83e925cffbcb2396e1bede-dot:FOCUS{background: #ED1B35;}div#n2-ss-2 .n-uc-TfR8SNDBr7Ox{padding:10px 10px 10px 10px}div#n2-ss-2 .n-uc-GdCWtk2ipYCm{padding:10px 10px 10px 10px}div#n2-ss-2 .nextend-arrow img{width: 32px}@media (min-width: 1200px){div#n2-ss-2 [data-hide-desktopportrait="1"]{display: none !important;}}@media (orientation: landscape) and (max-width: 1199px) and (min-width: 901px),(orientation: portrait) and (max-width: 1199px) and (min-width: 701px){div#n2-ss-2 [data-hide-tabletportrait="1"]{display: none !important;}}@media (orientation: landscape) and (max-width: 900px),(orientation: portrait) and (max-width: 700px){div#n2-ss-2 [data-hide-mobileportrait="1"]{display: none !important;}div#n2-ss-2 .nextend-arrow img{width: 16px}}</style>
+<script>(function(){this._N2=this._N2||{_r:[],_d:[],r:function(){this._r.push(arguments)},d:function(){this._d.push(arguments)}}}).call(window);</script>
+<script src="js/n2.min.js"></script>
+<script src="js/smartslider-frontend.min.js"></script>
+<script src="js/ss-simple.min.js"></script>
+<script src="js/smartslider-backgroundanimation.min.js"></script>
+<script src="js/w-arrow-image.min.js"></script>
+<script src="js/w-bullet.min.js"></script>
+<script>_N2.r('documentReady', function(){
+_N2.r(["documentReady","smartslider-frontend","smartslider-backgroundanimation","SmartSliderWidgetArrowImage","SmartSliderWidgetBulletTransition","ss-simple"],function(){new _N2.SmartSliderSimple('n2-ss-2', {"admin":false,"background.video.mobile":1,"loadingTime":2000,"alias":{"id":0,"smoothScroll":0,"slideSwitch":0,"scroll":1},"align":"normal","isDelayed":0,"responsive":{"mediaQueries":{"all":false,"desktopportrait":["(min-width: 1200px)"],"tabletportrait":["(orientation: landscape) and (max-width: 1199px) and (min-width: 901px)","(orientation: portrait) and (max-width: 1199px) and (min-width: 701px)"],"mobileportrait":["(orientation: landscape) and (max-width: 900px)","(orientation: portrait) and (max-width: 700px)"]},"base":{"slideOuterWidth":1200,"slideOuterHeight":400,"sliderWidth":1200,"sliderHeight":400,"slideWidth":1200,"slideHeight":400},"hideOn":{"desktopLandscape":false,"desktopPortrait":false,"tabletLandscape":false,"tabletPortrait":false,"mobileLandscape":false,"mobilePortrait":false},"onResizeEnabled":true,"type":"fullwidth","sliderHeightBasedOn":"real","focusUser":1,"focusEdge":"auto","breakpoints":[{"device":"tabletPortrait","type":"max-screen-width","portraitWidth":1199,"landscapeWidth":1199},{"device":"mobilePortrait","type":"max-screen-width","portraitWidth":700,"landscapeWidth":900}],"enabledDevices":{"desktopLandscape":0,"desktopPortrait":1,"tabletLandscape":0,"tabletPortrait":1,"mobileLandscape":0,"mobilePortrait":1},"sizes":{"desktopPortrait":{"width":1200,"height":400,"max":3000,"min":1200},"tabletPortrait":{"width":701,"height":233,"customHeight":false,"max":1199,"min":701},"mobilePortrait":{"width":320,"height":106,"customHeight":false,"max":900,"min":320}},"overflowHiddenPage":0,"focus":{"offsetTop":"#wpadminbar","offsetBottom":""}},"controls":{"mousewheel":0,"touch":"horizontal","keyboard":1,"blockCarouselInteraction":1},"playWhenVisible":1,"playWhenVisibleAt":0.5,"lazyLoad":0,"lazyLoadNeighbor":0,"blockrightclick":0,"maintainSession":0,"autoplay":{"enabled":1,"start":1,"duration":2000,"autoplayLoop":1,"allowReStart":0,"pause":{"click":1,"mouse":"0","mediaStarted":1},"resume":{"click":0,"mouse":"0","mediaEnded":1,"slidechanged":0},"interval":1,"intervalModifier":"loop","intervalSlide":"current"},"perspective":1500,"layerMode":{"playOnce":0,"playFirstLayer":1,"mode":"skippable","inAnimation":"mainInEnd"},"bgAnimations":{"global":[{"type":"Flat","rows":1,"columns":25,"tiles":{"delay":0.03,"sequence":"BackwardCol"},"main":{"type":"next","duration":0.35,"next":{"ease":"easeInQuart","opacity":"0","xP":-100}},"invert":{"next":{"xP":100}},"invertTiles":{"sequence":"ForwardCol"},"desktopOnly":true},{"type":"Flat","rows":5,"columns":7,"tiles":{"delay":1,"sequence":"Random"},"main":{"type":"next","duration":0.8,"next":{"ease":"easeInQuart","opacity":0}},"desktopOnly":true}],"color":"RGBA(51,51,51,1)","speed":"normal"},"mainanimation":{"type":"horizontal","duration":800,"delay":0,"ease":"easeOutQuad","shiftedBackgroundAnimation":0},"carousel":1,"initCallbacks":function(){new _N2.SmartSliderWidgetArrowImage(this);new _N2.SmartSliderWidgetBulletTransition(this, {"area":10,"dotClasses":"n2-style-0d2023d32a83e925cffbcb2396e1bede-dot ","mode":"","action":"click"});}});});
+});
+</script>
+    <title>Refriango</title>
+</head>
+
+<body data-bs-spy="scroll" data-bs-target=".navbar" data-bs-offset="70">
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg py-3 sticky-top navbar-light bg-white">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img class="logo" src="img/logo.svg" alt="">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#services">Marcas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#features">Nossa Presença</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#portfolio">Carreiras</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#pricing">Press</a>
+                    </li>
+                    <!--
+                    <li class="nav-item">
+                        <a class="nav-link" href="#team">Team</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#blog">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li> -->
+                </ul>
+                <!-- <button class="btn btn-primary ms-lg-3">Join Us</button> -->
+            </div>
+        </div>
+    </nav><!-- //NAVBAR -->
+
+    <!-- HERO -->
+    <div class="hero vh-100 d-flex align-items-center" id="home">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-7 mx-auto text-center">
+                    <h1 class="display-4 text-white"></h1><br><br>
+                    <p class="text-white my-3 text-home">A Refriango é uma empresa especializada na produção e distribuição de refrigerantes sumos, águas, bebidas energéticas e bebidas alcoólicas.</p>
+                    <!--<a href="#" class="btn me-2 btn-primary">Get Started</a>
+                    <a href="#" class="btn btn-outline-light">My Portfolio</a> -->
+                </div>
+            </div>
+        </div>
+    </div><!-- //HERO -->
+
+    <section>
+        <div class="n2_clear"><ss3-force-full-width data-overflow-x="body" data-horizontal-selector="body"><div class="n2-section-smartslider fitvidsignore  n2_clear" data-ssid="2"><div id="n2-ss-2-align" class="n2-ss-align"><div class="n2-padding"><div id="n2-ss-2" data-creator="Smart Slider 3" data-responsive="fullwidth" class="n2-ss-slider n2-ow n2-has-hover n2notransition  ">
+
+
+
+            <div class="n2-ss-slider-wrapper-inside">
+                    <div class="n2-ss-slider-1 n2_ss__touch_element n2-ow">
+                        <div class="n2-ss-slider-2 n2-ow">
+                                                                <div class="n2-ss-background-animation n2-ow"></div>
+                                            <div class="n2-ss-slider-3 n2-ow">
+            
+                                <div class="n2-ss-slide-backgrounds n2-ow-all"><div class="n2-ss-slide-background" data-public-id="1" data-mode="fill"><div class="n2-ss-slide-background-image" data-blur="0" data-opacity="100" data-x="50" data-y="50" data-alt="" data-title=""><picture class="skip-lazy" data-skip-lazy="1"><img src="img/dl.beatsnoop.com-1706450356.png" alt="" title="" loading="lazy" class="skip-lazy" data-skip-lazy="1"></picture></div><div data-color="RGBA(255,255,255,0)" style="background-color: RGBA(255,255,255,0);" class="n2-ss-slide-background-color"></div></div><div class="n2-ss-slide-background" data-public-id="2" data-mode="fill"><div class="n2-ss-slide-background-image" data-blur="0" data-opacity="100" data-x="62" data-y="63" data-alt="" data-title="" style="--ss-o-pos-x:62%;--ss-o-pos-y:63%"><picture class="skip-lazy" data-skip-lazy="1"><img src="img/be972522656443.56316455d8981.png" alt="" title="" loading="lazy" class="skip-lazy" data-skip-lazy="1"></picture></div><div data-color="RGBA(255,255,255,0)" style="background-color: RGBA(255,255,255,0);" class="n2-ss-slide-background-color"></div></div><div class="n2-ss-slide-background" data-public-id="3" data-mode="fill"><div class="n2-ss-slide-background-image" data-blur="0" data-opacity="100" data-x="50" data-y="50" data-alt="" data-title=""><picture class="skip-lazy" data-skip-lazy="1"><img src="img/33cde946525757.58595dfc66f47.jpg" alt="" title="" loading="lazy" class="skip-lazy" data-skip-lazy="1"></picture></div><div data-color="RGBA(255,255,255,0)" style="background-color: RGBA(255,255,255,0);" class="n2-ss-slide-background-color"></div></div><div class="n2-ss-slide-background" data-public-id="4" data-mode="fill"><div class="n2-ss-slide-background-image" data-blur="0" data-opacity="100" data-x="29" data-y="56" data-alt="" data-title="" style="--ss-o-pos-x:29%;--ss-o-pos-y:56%"><picture class="skip-lazy" data-skip-lazy="1"><img src="img/dl.beatsnoop.com-1706448075.jpg" alt="" title="" loading="lazy" class="skip-lazy" data-skip-lazy="1"></picture></div><div data-color="RGBA(255,255,255,0)" style="background-color: RGBA(255,255,255,0);" class="n2-ss-slide-background-color"></div></div></div>                    <div class="n2-ss-slider-4 n2-ow">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400" data-related-device="desktopPortrait" class="n2-ow n2-ss-preserve-size n2-ss-preserve-size--slider n2-ss-slide-limiter"></svg><div data-first="1" data-slide-duration="0" data-id="11" data-slide-public-id="1" data-title="dl.beatsnoop.com-1706450356" class="n2-ss-slide n2-ow  n2-ss-slide-11"><div role="note" class="n2-ss-slide--focus" tabindex="-1">dl.beatsnoop.com-1706450356</div><div class="n2-ss-layers-container n2-ss-slide-limiter n2-ow"><div class="n2-ss-layer n2-ow n-uc-pQJoYwYiLQwg" data-sstype="slide" data-pm="default"></div></div></div><div data-slide-duration="0" data-id="7" data-slide-public-id="2" data-title="2" class="n2-ss-slide n2-ow  n2-ss-slide-7"><div role="note" class="n2-ss-slide--focus" tabindex="-1">2</div><div class="n2-ss-layers-container n2-ss-slide-limiter n2-ow"><div class="n2-ss-layer n2-ow n-uc-TfR8SNDBr7Ox" data-sstype="slide" data-pm="default"></div></div></div><div data-slide-duration="0" data-id="12" data-slide-public-id="3" data-title="AF_TUT_TetraPack_Out_6x3" class="n2-ss-slide n2-ow  n2-ss-slide-12"><div role="note" class="n2-ss-slide--focus" tabindex="-1">AF_TUT_TetraPack_Out_6x3</div><div class="n2-ss-layers-container n2-ss-slide-limiter n2-ow"><div class="n2-ss-layer n2-ow n-uc-yELw42S7ZV4l" data-sstype="slide" data-pm="default"></div></div></div><div data-slide-duration="0" data-id="14" data-slide-public-id="4" data-title="AF_SPEED_Out_16x4_Limao" class="n2-ss-slide n2-ow  n2-ss-slide-14"><div role="note" class="n2-ss-slide--focus" tabindex="-1">AF_SPEED_Out_16x4_Limao</div><div class="n2-ss-layers-container n2-ss-slide-limiter n2-ow"><div class="n2-ss-layer n2-ow n-uc-GdCWtk2ipYCm" data-sstype="slide" data-pm="default"></div></div></div>                    </div>
+            
+                                                </div>
+                        </div>
+                    </div>
+                    <div class="n2-ss-slider-controls n2-ss-slider-controls-absolute-left-center"><div style="--widget-offset:15px;" class="n2-ss-widget nextend-arrow n2-ow-all nextend-arrow-previous  nextend-arrow-animated-fade" data-hide-mobileportrait="1" id="n2-ss-2-arrow-previous" role="button" aria-label="previous arrow" tabindex="0"><img width="32" height="32" class="skip-lazy" data-skip-lazy="1" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHZpZXdCb3g9IjAgMCAzMiAzMiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxwYXRoIGQ9Ik0xMS40MzMgMTUuOTkyTDIyLjY5IDUuNzEyYy4zOTMtLjM5LjM5My0xLjAzIDAtMS40Mi0uMzkzLS4zOS0xLjAzLS4zOS0xLjQyMyAwbC0xMS45OCAxMC45NGMtLjIxLjIxLS4zLjQ5LS4yODUuNzYtLjAxNS4yOC4wNzUuNTYuMjg0Ljc3bDExLjk4IDEwLjk0Yy4zOTMuMzkgMS4wMy4zOSAxLjQyNCAwIC4zOTMtLjQuMzkzLTEuMDMgMC0xLjQybC0xMS4yNTctMTAuMjkiCiAgICAgICAgICBmaWxsPSIjZjlmOWY5IiBvcGFjaXR5PSIxIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiLz4KPC9zdmc+" alt="previous arrow"></div></div><div class="n2-ss-slider-controls n2-ss-slider-controls-absolute-right-center"><div style="--widget-offset:15px;" class="n2-ss-widget nextend-arrow n2-ow-all nextend-arrow-next  nextend-arrow-animated-fade" data-hide-mobileportrait="1" id="n2-ss-2-arrow-next" role="button" aria-label="next arrow" tabindex="0"><img width="32" height="32" class="skip-lazy" data-skip-lazy="1" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHZpZXdCb3g9IjAgMCAzMiAzMiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxwYXRoIGQ9Ik0xMC43MjIgNC4yOTNjLS4zOTQtLjM5LTEuMDMyLS4zOS0xLjQyNyAwLS4zOTMuMzktLjM5MyAxLjAzIDAgMS40MmwxMS4yODMgMTAuMjgtMTEuMjgzIDEwLjI5Yy0uMzkzLjM5LS4zOTMgMS4wMiAwIDEuNDIuMzk1LjM5IDEuMDMzLjM5IDEuNDI3IDBsMTIuMDA3LTEwLjk0Yy4yMS0uMjEuMy0uNDkuMjg0LS43Ny4wMTQtLjI3LS4wNzYtLjU1LS4yODYtLjc2TDEwLjcyIDQuMjkzeiIKICAgICAgICAgIGZpbGw9IiNmOWY5ZjkiIG9wYWNpdHk9IjEiIGZpbGwtcnVsZT0iZXZlbm9kZCIvPgo8L3N2Zz4=" alt="next arrow"></div></div><div class="n2-ss-slider-controls n2-ss-slider-controls-absolute-center-bottom"><div style="--widget-offset:10px;" class="n2-ss-widget n2-ss-control-bullet n2-ow-all n2-ss-control-bullet-horizontal"><div class=" nextend-bullet-bar n2-bar-justify-content-center"><div class="n2-bullet n2-style-0d2023d32a83e925cffbcb2396e1bede-dot " style="visibility:hidden;"></div></div></div></div></div></div><ss3-loader></ss3-loader></div></div><div class="n2_clear"></div></div></ss3-force-full-width></div>
+    </section>
+
+    <section class="section-cards">
+        <div class="card-container">
+            <div class="card">
+              <img src="img/alentejo.png" alt="">
+            </div>
+            <div class="card">
+              <img src="img/americancola.png" alt="">
+            </div>
+            <div class="card">
+                <img src="img/bluepolpanew (1).png" alt="">
+            </div><br>
+            <div class="card">
+                <img src="img/gaivota.png" alt="">
+            </div>
+            <div class="card">
+                <img src="img/nicetea.png" alt="">
+            </div>
+            <div class="card">
+                <img src="img/nutry.png" alt="">
+            </div>
+            <div class="card">
+                <img src="img/pura.png" alt="">
+            </div>
+            <div class="card">
+                <img src="img/red.png" alt="">
+            </div>
+            <div class="card">
+                <img src="img/speed.png" alt="">
+            </div>
+            <div class="card">
+                <img src="img/supercuia.png" alt="">
+            </div>
+            <div class="card">
+                <img src="img/tigra.png" alt="">
+            </div>
+            <div class="card">
+                <img src="img/tropicana.png" alt="">
+            </div>
+            <div class="card">
+                <img src="img/tutti.png" alt="">
+            </div>
+            <div class="card">
+                <img src="img/welwitschia.png" alt="">
+            </div>
+          </div>
+    </section>
+
+    <div id="map"></div>
+
+    <!-- SERVICES -->
+    <section id="services">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-md-8 mx-auto text-center">
+                    <h6 class="text-primary">SERIVCES</h6>
+                    <h1>Our Services</h1>
+                    <p>Lorem ipsum dolor sit amet consectetur nisi necessitatibus repellat distinctio eveniet eaque fuga
+                        in cumque optio consectetur harum vitae debitis sapiente praesentium aperiam aut</p>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-4 col-sm-6">
+                    <div class="service card-effect bounceInUp">
+                        <div class="iconbox">
+                            <i class='bx bxs-check-shield'></i>
+                        </div>
+                        <h5 class="mt-4 mb-2">Service</h5>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil perspiciatis illo asperiores
+                            perferendis </p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <div class="service card-effect">
+                        <div class="iconbox">
+                            <i class='bx bxs-comment-detail'></i>
+                        </div>
+                        <h5 class="mt-4 mb-2">Service</h5>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil perspiciatis illo asperiores
+                            perferendis </p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <div class="service card-effect">
+                        <div class="iconbox">
+                            <i class='bx bxs-cog'></i>
+                        </div>
+                        <h5 class="mt-4 mb-2">Service</h5>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil perspiciatis illo asperiores
+                            perferendis </p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <div class="service card-effect">
+                        <div class="iconbox">
+                            <i class='bx bxs-heart'></i>
+                        </div>
+                        <h5 class="mt-4 mb-2">Service</h5>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil perspiciatis illo asperiores
+                            perferendis </p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <div class="service card-effect">
+                        <div class="iconbox">
+                            <i class='bx bxs-rocket'></i>
+                        </div>
+                        <h5 class="mt-4 mb-2">Service</h5>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil perspiciatis illo asperiores
+                            perferendis </p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <div class="service card-effect">
+                        <div class="iconbox">
+                            <i class='bx bxs-doughnut-chart'></i>
+                        </div>
+                        <h5 class="mt-4 mb-2">Service</h5>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil perspiciatis illo asperiores
+                            perferendis </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section><!-- SERVICES -->
+
+    <!-- FEATURES -->
+    <section class="row w-100 py-0 bg-light" id="features">
+        <div class="col-lg-6 col-img"></div>
+        <div class="col-lg-6 py-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-10 offset-md-1">
+                        <h6 class="text-primary">WHY TO CHOOES US</h6>
+                        <h1>Best solution for your business</h1>
+                        <p>Lorem ipsum dolor sit amet consectetur nisi necessitatibus repellat distinctio eveniet eaque
+                            fuga
+                            in cumque optio consectetur harum vitae debitis sapiente praesentium aperiam aut</p>
+
+                        <div class="feature d-flex mt-5">
+                            <div class="iconbox me-3">
+                                <i class='bx bxs-comment-edit'></i>
+                            </div>
+                            <div>
+                                <h5>Feature</h5>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil perspiciatis illo </p>
+                            </div>
+                        </div>
+                        <div class="feature d-flex">
+                            <div class="iconbox me-3">
+                                <i class='bx bxs-user-circle'></i>
+                            </div>
+                            <div>
+                                <h5>Feature</h5>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil perspiciatis illo </p>
+                            </div>
+                        </div>
+                        <div class="feature d-flex">
+                            <div class="iconbox me-3">
+                                <i class='bx bxs-download'></i>
+                            </div>
+                            <div>
+                                <h5>Feature</h5>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil perspiciatis illo </p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section><!-- FEATURES -->
+
+    <!-- PROJECTS -->
+    <section id="portfolio">
+        <div class="container-fluid">
+            <div class="row mb-5">
+                <div class="col-md-8 mx-auto text-center">
+                    <h6 class="text-primary">PROJECTS</h6>
+                    <h1>Our Recent Work</h1>
+                    <p>Lorem ipsum dolor sit amet consectetur nisi necessitatibus repellat distinctio eveniet eaque fuga
+                        in cumque optio consectetur harum vitae debitis sapiente praesentium aperiam aut</p>
+                </div>
+            </div>
+            <div class="row g-3">
+                <div class="col-lg-4 col-sm-6">
+                    <div class="project">
+                        <img src="img/pro1.jpg" alt="">
+                        <div class="overlay">
+                            <div>
+                                <h4 class="text-white">Project Title</h4>
+                                <h6 class="text-white">Website Design</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <div class="project">
+                        <img src="img/pro2.jpg" alt="">
+                        <div class="overlay">
+                            <div>
+                                <h4 class="text-white">Project Title</h4>
+                                <h6 class="text-white">Website Design</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <div class="project">
+                        <img src="img/pro3.jpg" alt="">
+                        <div class="overlay">
+                            <div>
+                                <h4 class="text-white">Project Title</h4>
+                                <h6 class="text-white">Website Design</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <div class="project">
+                        <img src="img/pro4.jpg" alt="">
+                        <div class="overlay">
+                            <div>
+                                <h4 class="text-white">Project Title</h4>
+                                <h6 class="text-white">Website Design</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <div class="project">
+                        <img src="img/pro5.jpg" alt="">
+                        <div class="overlay">
+                            <div>
+                                <h4 class="text-white">Project Title</h4>
+                                <h6 class="text-white">Website Design</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <div class="project">
+                        <img src="img/pro6.jpg" alt="">
+                        <div class="overlay">
+                            <div>
+                                <h4 class="text-white">Project Title</h4>
+                                <h6 class="text-white">Website Design</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section><!-- PROJECTS -->
+
+    <!-- PRICING -->
+    <section id="pricing" class="bg-light">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-md-8 mx-auto text-center">
+                    <h6 class="text-primary">PRICING</h6>
+                    <h1>Our Fair & Simple Pricing</h1>
+                    <p>Lorem ipsum dolor sit amet consectetur nisi necessitatibus repellat distinctio eveniet eaque fuga
+                        in cumque optio consectetur harum vitae debitis sapiente praesentium aperiam aut</p>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-3 col-sm-6">
+                    <div class="pricing card-effect text-center">
+                        <h6>STARTER</h6>
+                        <h1>$99</h1>
+                        <hr>
+                        <ul class="list-unstyled mb-4">
+                            <li><i class='bx bxs-check-circle'></i>
+                                Premium support</li>
+                            <li><i class='bx bxs-check-circle'></i>
+                                30+ Webmaster Tools</li>
+                            <li><i class='bx bxs-check-circle'></i>
+                                Drag & Drop Builder</li>
+                            <li><i class='bx bxs-check-circle'></i>
+                                eCommerce Store</li>
+                            <li><i class='bx bxs-check-circle'></i>Wordpress plugins</li>
+                        </ul>
+                        <button class="btn btn-primary">Get Started</button>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <div class="pricing card-effect text-center">
+                        <h6>STARTER</h6>
+                        <h1>$199</h1>
+                        <hr>
+                        <ul class="list-unstyled mb-4">
+                            <li><i class='bx bxs-check-circle'></i>
+                                Premium support</li>
+                            <li><i class='bx bxs-check-circle'></i>
+                                30+ Webmaster Tools</li>
+                            <li><i class='bx bxs-check-circle'></i>
+                                Drag & Drop Builder</li>
+                            <li><i class='bx bxs-check-circle'></i>
+                                eCommerce Store</li>
+                            <li><i class='bx bxs-check-circle'></i>Wordpress plugins</li>
+                        </ul>
+                        <button class="btn btn-primary">Get Started</button>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <div class="pricing card-effect text-center">
+                        <h6>STARTER</h6>
+                        <h1>$299</h1>
+                        <hr>
+                        <ul class="list-unstyled mb-4">
+                            <li><i class='bx bxs-check-circle'></i>
+                                Premium support</li>
+                            <li><i class='bx bxs-check-circle'></i>
+                                30+ Webmaster Tools</li>
+                            <li><i class='bx bxs-check-circle'></i>
+                                Drag & Drop Builder</li>
+                            <li><i class='bx bxs-check-circle'></i>
+                                eCommerce Store</li>
+                            <li><i class='bx bxs-check-circle'></i>Wordpress plugins</li>
+                        </ul>
+                        <button class="btn btn-primary">Get Started</button>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <div class="pricing card-effect text-center">
+                        <h6>STARTER</h6>
+                        <h1>$399</h1>
+                        <hr>
+                        <ul class="list-unstyled mb-4">
+                            <li><i class='bx bxs-check-circle'></i>
+                                Premium support</li>
+                            <li><i class='bx bxs-check-circle'></i>
+                                30+ Webmaster Tools</li>
+                            <li><i class='bx bxs-check-circle'></i>
+                                Drag & Drop Builder</li>
+                            <li><i class='bx bxs-check-circle'></i>
+                                eCommerce Store</li>
+                            <li><i class='bx bxs-check-circle'></i>Wordpress plugins</li>
+                        </ul>
+                        <button class="btn btn-primary">Get Started</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section><!-- PRICING -->
+
+    <!-- TEAM -->
+    <section id="team">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-md-8 mx-auto text-center">
+                    <h6 class="text-primary">TEAM</h6>
+                    <h1>Meet Our Crew Members</h1>
+                    <p>Lorem ipsum dolor sit amet consectetur nisi necessitatibus repellat distinctio eveniet eaque fuga
+                        in cumque optio consectetur harum vitae debitis sapiente praesentium aperiam aut</p>
+                </div>
+            </div>
+            <div class="row text-center g-4">
+                <div class="col-lg-3 col-sm-6">
+                    <div class="team-member card-effect">
+                        <img src="img/team1.jpg" alt="">
+                        <h5 class="mb-0 mt-4">Sharbat Khan</h5>
+                        <p>Web Developer</p>
+                        <div class="social-icons">
+                            <a href="#"><i class='bx bxl-facebook'></i></a>
+                            <a href="#"><i class='bx bxl-twitter'></i></a>
+                            <a href="#"><i class='bx bxl-instagram-alt'></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <div class="team-member card-effect">
+                        <img src="img/team2.jpg" alt="">
+                        <h5 class="mb-0 mt-4">Sharbat Khan</h5>
+                        <p>Web Developer</p>
+                        <div class="social-icons">
+                            <a href="#"><i class='bx bxl-facebook'></i></a>
+                            <a href="#"><i class='bx bxl-twitter'></i></a>
+                            <a href="#"><i class='bx bxl-instagram-alt'></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <div class="team-member card-effect">
+                        <img src="img/team3.jpg" alt="">
+                        <h5 class="mb-0 mt-4">Sharbat Khan</h5>
+                        <p>Web Developer</p>
+                        <div class="social-icons">
+                            <a href="#"><i class='bx bxl-facebook'></i></a>
+                            <a href="#"><i class='bx bxl-twitter'></i></a>
+                            <a href="#"><i class='bx bxl-instagram-alt'></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <div class="team-member card-effect">
+                        <img src="img/team4.jpg" alt="">
+                        <h5 class="mb-0 mt-4">Sharbat Khan</h5>
+                        <p>Web Developer</p>
+                        <div class="social-icons">
+                            <a href="#"><i class='bx bxl-facebook'></i></a>
+                            <a href="#"><i class='bx bxl-twitter'></i></a>
+                            <a href="#"><i class='bx bxl-instagram-alt'></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section><!-- TEAM -->
+
+    <!-- BLOG -->
+    <section id="blog" class="bg-light">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-md-8 mx-auto text-center">
+                    <h6 class="text-primary">BLOG</h6>
+                    <h1>Latest News From The Blog</h1>
+                    <p>Lorem ipsum dolor sit amet consectetur nisi necessitatibus repellat distinctio eveniet eaque fuga
+                        in cumque optio consectetur harum vitae debitis sapiente praesentium aperiam aut</p>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="blog-post card-effect">
+                        <img src="img/blog1.jpg" alt="">
+                        <h5 class="mt-4"><a href="#">harum vitae debitis sapiente praesentium aperiam au</a></h5>
+                        <p>Lorem ipsum dolor sit amet consectetur nisi necessitatibus repellat distinctio eveniet </p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="blog-post card-effect">
+                        <img src="img/blog2.jpg" alt="">
+                        <h5 class="mt-4"><a href="#">harum vitae debitis sapiente praesentium aperiam au</a></h5>
+                        <p>Lorem ipsum dolor sit amet consectetur nisi necessitatibus repellat distinctio eveniet </p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="blog-post card-effect">
+                        <img src="img/blog3.jpg" alt="">
+                        <h5 class="mt-4"><a href="#">harum vitae debitis sapiente praesentium aperiam au</a></h5>
+                        <p>Lorem ipsum dolor sit amet consectetur nisi necessitatibus repellat distinctio eveniet </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section><!-- BLOG -->
+
+    <!-- CONTACT -->
+    <section id="contact">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-md-8 mx-auto text-center">
+                    <h6 class="text-primary">CONTACT</h6>
+                    <h1>Get In Touch</h1>
+                    <p>Lorem ipsum dolor sit amet consectetur nisi necessitatibus repellat distinctio eveniet eaque fuga
+                        in cumque optio consectetur harum vitae debitis sapiente praesentium aperiam aut</p>
+                </div>
+            </div>
+
+            <form action="" class="row g-3 justify-content-center">
+                <div class="col-md-5">
+                    <input type="text" class="form-control" placeholder="Full Name">
+                </div>
+                <div class="col-md-5">
+                    <input type="text" class="form-control" placeholder="Enter E-mail">
+                </div>
+                <div class="col-md-10">
+                    <input type="text" class="form-control" placeholder="Enter Subject">
+                </div>
+                <div class="col-md-10">
+                    <textarea name="" id="" cols="30" rows="5" class="form-control"
+                        placeholder="Enter Message"></textarea>
+                </div>
+                <div class="col-md-10 d-grid">
+                    <button class="btn btn-primary">Contact</button>
+                </div>
+            </form>
+
+        </div>
+    </section><!-- CONTACT -->
+
+    <footer>
+        <div class="footer-top">
+            <div class="container">
+                <div class="row gy-4">
+                    <div class="col-lg-4">
+                        <img class="logo" src="img/logo-white.svg" alt="">
+                    </div>
+                    <div class="col-lg-2">
+                        <h5 class="text-white">Brand</h5>
+                        <ul class="list-unstyled">
+                            <li><a href="#">About</a></li>
+                            <li><a href="#">Services</a></li>
+                            <li><a href="#">Features</a></li>
+                            <li><a href="#">Pricing</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-2">
+                        <h5 class="text-white">More</h5>
+                        <ul class="list-unstyled">
+                            <li><a href="#">FAQ's</a></li>
+                            <li><a href="#">Privacy & Policy</a></li>
+                            <li><a href="#">Warranty</a></li>
+                            <li><a href="#">Shipment</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-4">
+                        <h5 class="text-white">Contact</h5>
+                        <ul class="list-unstyled">
+                            <li>Address: 2715 Ash Dr. San Jose, South Dakota 83475</li>
+                            <li>Email: jackson.graham@example.com</li>
+                            <li>Phone: (603) 555-0123</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom py-3">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <p class="mb-0">© 2020 copyright all right reserved | Designed with <i
+                            class="bx bx-heart text-danger"></i> by<a
+                                href="https://www.youtube.com/channel/UCYMEEnLzGGGIpQQ3Nu_sBsQ"
+                                class="text-white">SA7MAN</a></p>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="social-icons">
+                            <a href="#"><i class='bx bxl-facebook'></i></a>
+                            <a href="#"><i class='bx bxl-twitter'></i></a>
+                            <a href="#"><i class='bx bxl-instagram-alt'></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Coordenadas dos países
+    var paises = {
+      'Angola': [-11.2027, 17.8739],
+      'Portugal': [38.7223, -9.1393],
+      'República do Congo': [-0.2280, 15.8277],
+      'Moçambique': [-18.6657, 35.5296],
+      'África do Sul': [-30.5595, 22.9375],
+      'Benim': [9.3077, 2.3158],
+      'Guiné-Bissau': [11.8037, -15.1804],
+      'Senegal': [14.4974, -14.4524],
+      'Guiné Equatorial': [1.6508, 10.2679],
+      'Namíbia': [-22.5597, 17.0832],
+      'Nigéria': [9.0820, 8.6753],
+      'São Tomé e Príncipe': [0.1864, 6.6131],
+      'Zâmbia': [-13.1339, 27.8493],
+      'Bélgica': [50.8503, 4.3517],
+      'China': [35.8617, 104.1954],
+      'Holanda': [52.3676, 4.9041],
+      'República da Guiné': [9.9456, -9.6966],
+      'República Democrática do Congo': [-4.0383, 21.7587],
+      'Argélia': [28.0339, 1.6596],
+      'Togo': [8.6195, 0.8248],
+      'Cabo Verde': [16.5388, -23.0418],
+      'Emirados Árabes Unidos': [23.4241, 53.8478],
+    };
+
+    // Função de inicialização do mapa
+    function inicializarMapa() {
+      // Configurações do mapa
+      var mapa = L.map('map').setView([13, 0], 3); // Centro do mapa e nível de zoom inicial
+
+      // Adiciona uma camada de mapa (usando OpenStreetMap como exemplo)
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '© OpenStreetMap contributors'
+      }).addTo(mapa);
+
+      // Adiciona marcadores para cada país com animações ao passar o mouse
+      for (var pais in paises) {
+        if (paises.hasOwnProperty(pais)) {
+          var coordenadas = paises[pais];
+
+          var marker = L.marker(coordenadas, {
+            icon: L.AwesomeMarkers.icon({
+              icon: 'info-sign',
+              prefix: 'glyphicon',
+              markerColor: 'red'
+            })
+          })
+          .bindPopup(pais)
+          .on('mouseover', function () {
+            this.openPopup();
+            this.setIcon(L.AwesomeMarkers.icon({
+              icon: 'info-sign',
+              prefix: 'glyphicon',
+              markerColor: 'green'
+            }));
+          })
+          .on('mouseout', function () {
+            this.closePopup();
+            this.setIcon(L.AwesomeMarkers.icon({
+              icon: 'info-sign',
+              prefix: 'glyphicon',
+              markerColor: 'red'
+            }));
+          });
+
+          mapa.addLayer(marker);
+        }
+      }
+    }
+
+    // Chama a função de inicialização do mapa quando a página carregar
+    document.addEventListener('DOMContentLoaded', inicializarMapa);
+
+       
+      </script>
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
