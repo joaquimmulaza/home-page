@@ -58,6 +58,8 @@ img {
     padding: 14px 18px;
     border-width: 2px;
     border-radius: 0;
+    background-color: var(--primary);
+    color: #fff;
 }
 
 .hero {
@@ -147,7 +149,7 @@ section {
 }
 
 .col-img {
-    background-image: url(../img/cover2.jpg);
+    background-image: url(../img/dl.beatsnoop.com-1706447969.jpg);
     background-position: center;
     background-size: cover;
     min-height: 500px;
@@ -281,11 +283,64 @@ form .form-control {
     .card-container {
         gap: 0;
     }
+
+    .two-column-layout{
+        flex-direction: column;
+        width: 100% !important;
+    }
+
+    .text-column{
+        text-align: left;
+    }
+
+    .image-column{
+        width: 80%;
+    }
   }
 
   #map {
     height: 600px; /* Altura do mapa */
-    width: 100%; /* Largura do mapa */
+    width: 80%; /* Largura do mapa */
+    margin: 0 auto;
   }
 
-  
+  .carreira{
+    background-image: url(../img/carreerTOp.webp);
+    text-align: center;
+    height: 800px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 93%;
+  }
+
+  .carreira h1{
+    text-align: center;
+    color: #fff;
+    font-size: 38px;
+  }
+
+  .two-column-layout {
+
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+     /* Permite que as colunas se movam para baixo em telas menores */
+    padding-top: 70px;
+    width: 70%;
+}
+
+.text-column {
+    box-sizing: border-box; 
+    width: 80%;/* Garante que o padding não aumente a largura total */
+    padding-right: 20px;
+}
+
+.image-column img {
+    width: 100%;
+    height: auto;
+}
+
